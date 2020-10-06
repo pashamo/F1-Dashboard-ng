@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Team } from '../team';
+import { TEAMS } from '../mock-teams';
 
 @Component({
   selector: 'app-teams',
@@ -7,11 +8,13 @@ import { Team } from '../team';
   styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit {
-  team: Team = {
-    name: "Ferrari",
-    firstDriver: "Sebastian Vettel",
-    secondDriver: "Charles Leclerc"
-  };
+  
+  teams = TEAMS;
+  selectedTeam: Team;
+
+  onSelect = (team: Team) => {
+    this.selectedTeam = team;
+  }
 
   constructor() { }
 

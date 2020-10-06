@@ -1,7 +1,21 @@
-<h2>{{team.name | uppercase}} Details</h2>
-<div>
-  <label>Name: 
-    <input [(ngModel)]="team.name" placeholder="name"/>
-  </label>
-<div><span>Drivers: </span>{{team.firstDriver}}, {{team.secondDriver}}</div>
+<h2>The Teams</h2>
+<ul class="teams">
+  <li *ngFor="let team of teams" 
+    [class.selected]="team === selectedTeam"
+    (click)="onSelect(team)">
+    <span class="badge">{{team.name}}</span> {{team.firstDriver}}, {{team.secondDriver}}
+  </li>
+</ul>
 
+
+<div *ngIf="selectedTeam">
+  <h2>{{selectedTeam.name | uppercase}} Details</h2>
+  <div>
+    <label>Name: 
+      <input [(ngModel)]="selectedTeam.name" placeholder="name"/>
+    </label>
+    <div>
+      <span>Drivers: </span>
+      {{selectedTeam.firstDriver}}, {{selectedTeam.secondDriver}}
+    </div>
+</div>
