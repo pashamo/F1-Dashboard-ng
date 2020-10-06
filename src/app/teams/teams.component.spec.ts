@@ -24,10 +24,10 @@ describe('TeamsComponent', () => {
   });
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(TeamsComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('My Teams');
+    expect(compiled.querySelector('h2').textContent).toContain('The Teams');
   });
 
 });
